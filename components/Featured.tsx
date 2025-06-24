@@ -1,8 +1,23 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Card = () => {
+	const { ref, inView } = useInView({
+		triggerOnce: false,
+		threshold: 0.5,
+	});
+
 	return (
-		<div className="flex flex-col">
+		<motion.div
+			ref={ref}
+			initial={{ opacity: 0, y: 20 }}
+			animate={inView ? { opacity: 1, y: 0 } : {}}
+			transition={{ duration: 0.3, ease: "easeOut" }}
+			className="flex flex-col"
+		>
 			<img
 				src="https://placehold.co/600x400"
 				className="h-[45vh] w-full object-cover rounded-[0.5rem] mb-[0.75rem]"
@@ -12,7 +27,7 @@ const Card = () => {
 				Lorem • ipsum • dolor • sit • amet
 			</p>
 			<h2 className="text-[5vh]">Lorem ipsum dolor</h2>
-		</div>
+		</motion.div>
 	);
 };
 
@@ -38,7 +53,7 @@ const Featured = () => {
 					href=""
 					className=" uppercase text-[0.75rem] font-semibold bg-neutral-100 shadow-md px-[1.5rem] py-[0.5rem] h-fit w-fit text-black rounded-full"
 				>
-					Let's Talk •
+					Let&apos;s Talk •
 				</a>
 			</div>
 			<div className="flex w-[90vw] mx-auto mt-[5vh]">
@@ -47,7 +62,6 @@ const Featured = () => {
 				</div>
 				<div className="w-1/3 flex items-center justify-between">
 					<p className=" text-[4vh]">+</p>
-
 					<p className=" text-[4vh]">+</p>
 				</div>
 				<div className="w-1/3 flex items-center justify-end">

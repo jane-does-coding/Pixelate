@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = () => {
 	return (
-		<div className="border-t-2 border-neutral-200 flex flex-col md:flex-row py-[3vh] gap-[2.5vw]">
+		<div className="border-t-2 border-neutral-200 flex flex-col md:flex-row py-[3vh] gap-[2.5vw] mb-[10vh]">
 			<img
 				src="https://placehold.co/600x400"
 				className="w-full md:w-[30vw] rounded-[0.5rem]"

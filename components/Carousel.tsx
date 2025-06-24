@@ -26,6 +26,8 @@ const Carousel = () => {
 		const interval = setInterval(() => {
 			setCurrentSlide((prev) => (prev + 1) % slides.length);
 		}, 6000);
+
+		return () => clearInterval(interval); // <--- fixes the warning + good practice
 	}, []);
 
 	return (

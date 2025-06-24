@@ -17,7 +17,6 @@ export default function Home() {
 			<Info />
 			<MarqueeComponent />
 			<Insights />
-			<div className="min-h-[10vh]"></div>
 			<Footer />
 		</div>
 	);
