@@ -2,7 +2,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const Card = () => {
+const Card = ({
+	image,
+	title,
+	description,
+	tags,
+}: {
+	image: string;
+	title: string;
+	description: string;
+	tags: string[];
+}) => {
 	const { ref, inView } = useInView({
 		triggerOnce: true,
 		threshold: 0.2,
@@ -18,9 +28,9 @@ const Card = () => {
 				initial={{ opacity: 0, y: 20 }}
 				animate={inView ? { opacity: 1, y: 0 } : {}}
 				transition={{ duration: 0.4, ease: "easeOut" }}
-				src="https://placehold.co/600x400"
+				src={image}
 				className="w-full md:w-[30vw] rounded-[0.5rem]"
-				alt=""
+				alt={title}
 			/>
 
 			{/* Content */}
@@ -32,7 +42,7 @@ const Card = () => {
 					transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
 					className="text-center md:text-left text-[5vh] mb-[1vh]"
 				>
-					Lorem, ipsum dolor.
+					{title}
 				</motion.h3>
 
 				{/* Subtext */}
@@ -42,9 +52,7 @@ const Card = () => {
 					transition={{ duration: 0.4, delay: 0.35, ease: "easeOut" }}
 					className="text-center md:text-left text-[2.25vh] w-[90%] mb-[4vh] md:mb-0"
 				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-					similique nesciunt maiores facere quo iste cupiditate accusantium
-					animi. Aspernatur, nostrum!
+					{description}
 				</motion.p>
 
 				{/* Footer Details */}
@@ -55,10 +63,7 @@ const Card = () => {
 					className="mt-auto flex flex-col md:flex-row items-center justify-between"
 				>
 					<p className="text-[1.5vh] font-medium uppercase">
-						Lorem • ipsum • dolor • sit • amet
-					</p>
-					<p className="text-[1.5vh] font-medium uppercase">
-						September 21, 2025
+						{tags.join(" • ")}
 					</p>
 				</motion.div>
 			</div>
@@ -76,6 +81,30 @@ const Insights = () => {
 		threshold: 0.2,
 	});
 
+	const cardsData = [
+		{
+			image: "https://placehold.co/600x400",
+			title: "Motivation Boost",
+			description:
+				"Turn your daily tasks into fun quests that keep you driven and energized all day long.",
+			tags: ["Focus", "Drive", "Energy"],
+		},
+		{
+			image: "https://placehold.co/600x400",
+			title: "Easy Tracking",
+			description:
+				"Visualize your progress with XP points and stats that make improvement feel rewarding.",
+			tags: ["Progress", "Stats", "Rewards"],
+		},
+		{
+			image: "https://placehold.co/600x400",
+			title: "Flexible Setup",
+			description:
+				"Customize your goals and habits easily to fit your unique lifestyle and daily routine.",
+			tags: ["Custom", "Goals", "Habits"],
+		},
+	];
+
 	return (
 		<div className="w-[90vw] mx-auto">
 			{/* Section Heading */}
@@ -87,7 +116,7 @@ const Insights = () => {
 					transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
 					className="text-[12vh]"
 				>
-					Lorem Ipsum
+					Why It Works
 				</motion.h2>
 				<motion.p
 					ref={pRef}
@@ -96,16 +125,22 @@ const Insights = () => {
 					transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
 					className="w-[20vw] text-[2vh] pb-[1vh]"
 				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ut.
-					Lorem ipsum dolor sit amet.
+					Turn your daily grind into an epic quest. Stay motivated, track
+					progress, and customize your journey.
 				</motion.p>
 			</div>
 
 			{/* Cards */}
 			<div className="flex flex-col">
-				<Card />
-				<Card />
-				<Card />
+				{cardsData.map((card, i) => (
+					<Card
+						key={i}
+						image={card.image}
+						title={card.title}
+						description={card.description}
+						tags={card.tags}
+					/>
+				))}
 			</div>
 		</div>
 	);

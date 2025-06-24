@@ -83,17 +83,17 @@ const Carousel = () => {
 				{/* Slides */}
 				{/* Slides */}
 				<div
-					className="w-[500vw] flex gap-[1.5vw] pl-[10vw] transition-transform duration-[1100ms] ease-in-out"
-					style={{ transform: `translateX(-${currentSlide * 81.5}vw)` }}
+					className="w-[500vw] flex gap-[1.5vw] pl-[15vw] transition-transform duration-[1100ms] ease-in-out"
+					style={{ transform: `translateX(-${currentSlide * 71.5}vw)` }}
 				>
 					{slides.map((slide, index) => (
 						<div
 							key={index}
-							className="w-[80vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative"
+							className="w-[70vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative"
 						>
 							<img
 								src={slide.image}
-								className="w-[80vw] h-[70vh] object-cover rounded-[0.5rem]"
+								className="w-[70vw] h-[70vh] object-cover rounded-[0.5rem]"
 								alt={slide.title}
 							/>
 							{/* Tags at the top */}

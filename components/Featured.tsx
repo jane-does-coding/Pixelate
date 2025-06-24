@@ -121,14 +121,14 @@ const Featured = () => {
 					title="Skill Tree"
 				/>
 			</div>
-			<div className="w-[90vw] mx-auto flex items-center justify-center">
+			{/* 	<div className="w-[90vw] mx-auto flex items-center justify-center">
 				<a
 					href=""
 					className="uppercase text-[0.75rem] font-semibold bg-neutral-100 shadow-md px-[1.5rem] py-[0.5rem] h-fit w-fit text-black rounded-full"
 				>
 					Let&apos;s Talk •
 				</a>
-			</div>
+			</div> */}
 			<motion.div
 				ref={bottomRef}
 				initial={{ opacity: 0, y: 10 }}
