@@ -1,14 +1,29 @@
-import React from "react";
+"use client";
+
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Banner = () => {
+	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
 	return (
 		<div className="mb-[10vh]">
-			<img
+			<motion.img
+				ref={ref}
+				initial={{ opacity: 0, y: 10 }}
+				animate={inView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.3, delay: 0.4, ease: "easeOut" }}
 				src="https://placehold.co/1080x600"
 				className="w-[90vw] mx-auto rounded-[0.5rem] h-[66.5vh] object-cover"
 				alt=""
 			/>
-			<div className="flex w-[90vw] mx-auto mt-[0.25rem]">
+			<motion.div
+				ref={ref}
+				initial={{ opacity: 0, y: 10 }}
+				animate={inView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.3, delay: 0.5, ease: "easeOut" }}
+				className="flex w-[90vw] mx-auto mt-[0.25rem]"
+			>
 				<div className="w-1/3 flex items-center justify-start">
 					<p className=" text-[4vh]">+</p>
 				</div>
@@ -22,7 +37,7 @@ const Banner = () => {
 				<div className="w-1/3 flex items-center justify-end">
 					<p className=" text-[4vh]">+</p>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 };

@@ -1,15 +1,53 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { IoChevronUpOutline } from "react-icons/io5";
+import { useInView } from "react-intersection-observer";
 
 const Footer = () => {
+	const { ref, inView } = useInView({
+		triggerOnce: true,
+		threshold: 0.1,
+	});
+
 	return (
-		<div className="flex justify-between w-[90vw] mx-auto pb-[3vh]">
-			<a className="flex gap-[1vw] items-center justify-center">
+		<motion.div
+			ref={ref}
+			initial={{ opacity: 0, y: 20 }}
+			animate={inView ? { opacity: 1, y: 0 } : {}}
+			transition={{ duration: 0.5, ease: "easeOut" }}
+			className="flex justify-between w-[90vw] mx-auto pb-[4vh]"
+		>
+			{/* Left Link */}
+			<motion.a
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+				className="flex gap-[1vw] items-center justify-center cursor-pointer"
+			>
 				Back to the top <IoChevronUpOutline size={20} />
-			</a>
-			<h2 className="font-semibold text-[2.25vh]">Pixelate</h2>
-			<a className="">Lorem Ipsum</a>
-		</div>
+			</motion.a>
+
+			{/* Center Title */}
+			<motion.h2
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+				className="font-semibold text-[2.25vh]"
+			>
+				Pixelate
+			</motion.h2>
+
+			{/* Right Link */}
+			<motion.a
+				initial={{ opacity: 0, y: 20 }}
+				animate={inView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+				className="cursor-pointer"
+			>
+				Lorem Ipsum
+			</motion.a>
+		</motion.div>
 	);
 };
 

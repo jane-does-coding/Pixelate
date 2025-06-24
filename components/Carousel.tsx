@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const slides = [
 	{
@@ -21,6 +23,10 @@ const slides = [
 
 const Carousel = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
+	const { ref: bottomRef, inView: bottomInView } = useInView({
+		triggerOnce: true,
+		threshold: 0.2,
+	});
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -30,14 +36,33 @@ const Carousel = () => {
 		return () => clearInterval(interval); // <--- fixes the warning + good practice
 	}, []);
 
+	const { ref, inView } = useInView({
+		triggerOnce: true,
+		threshold: 0.2,
+	});
+
 	return (
 		<div className="mb-[10vh]">
-			<div className="w-[90vw] mx-auto flex justify-between items-end mb-[5vh]">
-				<h2 className="text-[12vh]">Lorem Ipsum</h2>
-				<p className="w-[20vw] text-[2vh] pb-[1vh]">
+			<div className="w-[90vw] mx-auto flex justify-between items-end mb-[3vh]">
+				<motion.h2
+					ref={ref}
+					initial={{ opacity: 0, y: 20 }}
+					animate={inView ? { opacity: 1, y: 0 } : {}}
+					transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+					className="text-[12vh]"
+				>
+					Lorem Ipsum
+				</motion.h2>
+				<motion.p
+					ref={ref}
+					initial={{ opacity: 0, y: 20 }}
+					animate={inView ? { opacity: 1, y: 0 } : {}}
+					transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
+					className="w-[20vw] text-[2vh] pb-[1vh]"
+				>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ut.
 					Lorem ipsum dolor sit amet.
-				</p>
+				</motion.p>
 			</div>
 			<div className="w-full max-w-[100vw] h-[80vh] mx-auto overflow-hidden relative ">
 				{/* Slides */}
@@ -131,7 +156,13 @@ const Carousel = () => {
 					></div>
 				</div>
 			</div>
-			<div className="flex w-[90vw] mx-auto mt-[3vh]">
+			<motion.div
+				ref={bottomRef}
+				initial={{ opacity: 0, y: 10 }}
+				animate={bottomInView ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+				className="flex w-[90vw] mx-auto mt-[3vh]"
+			>
 				<div className="w-1/3 flex items-center justify-start">
 					<p className=" text-[4vh]">+</p>
 				</div>
@@ -143,7 +174,7 @@ const Carousel = () => {
 				<div className="w-1/3 flex items-center justify-end">
 					<p className=" text-[4vh]">+</p>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 };
