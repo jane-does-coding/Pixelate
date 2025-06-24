@@ -2,7 +2,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const Card = () => {
+const Card = ({
+	image,
+	tags,
+	title,
+}: {
+	image: string;
+	tags: string;
+	title: string;
+}) => {
 	const { ref: imgRef, inView: imgInView } = useInView({
 		triggerOnce: true,
 		threshold: 0.1,
@@ -23,7 +31,7 @@ const Card = () => {
 				initial={{ opacity: 0, y: 20 }}
 				animate={imgInView ? { opacity: 1, y: 0 } : {}}
 				transition={{ duration: 0.3, ease: "easeOut" }}
-				src="https://placehold.co/600x400"
+				src={image}
 				className="h-[45vh] w-full object-cover rounded-[0.5rem] mb-[0.75rem]"
 				alt=""
 			/>
@@ -34,7 +42,7 @@ const Card = () => {
 				transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
 				className="text-[1.5vh] font-medium uppercase"
 			>
-				Lorem • ipsum • dolor • sit • amet
+				{tags}
 			</motion.p>
 			<motion.h2
 				ref={h2Ref}
@@ -43,7 +51,7 @@ const Card = () => {
 				transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
 				className="text-[5vh]"
 			>
-				Lorem ipsum dolor
+				{title}
 			</motion.h2>
 		</div>
 	);
@@ -73,7 +81,7 @@ const Featured = () => {
 					transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
 					className="text-[12vh]"
 				>
-					Lorem Ipsum
+					Your Life, Gamified
 				</motion.h2>
 				<motion.p
 					ref={pRef}
@@ -82,16 +90,36 @@ const Featured = () => {
 					transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
 					className="w-[20vw] text-[2vh] pb-[1vh]"
 				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ut.
-					Lorem ipsum dolor sit amet.
+					Build habits, crush goals, and level up daily. Track progress, earn
+					XP, and stay motivated.
 				</motion.p>
 			</div>
 			<br />
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-[4vh] gap-y-[8vh] w-[90vw] mb-[7.5vh] mx-auto">
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+				<Card
+					image="https://placehold.co/600x400"
+					tags="Your life • quest hub • goals • progress
+
+"
+					title="Dashboard"
+				/>
+				<Card
+					image="https://placehold.co/600x400"
+					tags="Daily tasks • weekly goals • epic challenges
+
+"
+					title="Quests"
+				/>
+				<Card
+					image="https://placehold.co/600x400"
+					tags="Earn XP • level up • unlock custom rewards"
+					title="XP & Rewards"
+				/>
+				<Card
+					image="https://placehold.co/600x400"
+					tags="Visualize your growth • Track skills • Track hobbies"
+					title="Skill Tree"
+				/>
 			</div>
 			<div className="w-[90vw] mx-auto flex items-center justify-center">
 				<a

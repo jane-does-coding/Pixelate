@@ -24,8 +24,8 @@ const Navbar = () => {
 				transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
 				className="text-[3.25vh] w-2/5"
 			>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla molestiae
-				fugiat earum quo non. Eos?
+				Level up your daily grind by turning goals and habits into quests you
+				actually wanna complete.
 			</motion.p>
 			<div className="flex w-2/5 gap-[1rem] items-start justify-end">
 				<motion.a
@@ -36,7 +36,7 @@ const Navbar = () => {
 					href=""
 					className=" uppercase text-[0.75rem] font-semibold bg-neutral-800 px-[1.5rem] py-[0.5rem] h-fit w-fit text-white rounded-full"
 				>
-					Let&apos;s Talk •
+					Get Started •
 				</motion.a>
 				<motion.a
 					ref={ref}

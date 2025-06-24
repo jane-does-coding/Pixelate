@@ -5,19 +5,34 @@ import { useInView } from "react-intersection-observer";
 
 const slides = [
 	{
-		image: "/banner.jpg",
-		title: "Partner Films",
-		description: "Branding — Neue Montreal",
+		image: "https://placehold.co/1000x800",
+
+		title: "Main Dashboard",
+		description: "Goals — XP — Stats",
 	},
 	{
-		image: "/banner.jpg",
-		title: "Fuku",
-		description: "Branding — Neue Montreal",
+		image: "https://placehold.co/1000x800",
+
+		title: "Quest Log",
+		description: "Daily — Weekly — Challenges",
 	},
 	{
-		image: "/banner.jpg",
-		title: "Something Else",
-		description: "Design — Neue Montreal",
+		image: "https://placehold.co/1000x800",
+
+		title: "Skill Tracker",
+		description: "Level Up — Progress — Growth",
+	},
+	{
+		image: "https://placehold.co/1000x800",
+
+		title: "Rewards Shop",
+		description: "Earn — Spend — Celebrate",
+	},
+	{
+		image: "https://placehold.co/1000x800",
+
+		title: "Profile Stats",
+		description: "Energy — Focus — Achievements",
 	},
 ];
 
@@ -51,7 +66,7 @@ const Carousel = () => {
 					transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
 					className="text-[12vh]"
 				>
-					Lorem Ipsum
+					See It in Action
 				</motion.h2>
 				<motion.p
 					ref={ref}
@@ -60,83 +75,46 @@ const Carousel = () => {
 					transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
 					className="w-[20vw] text-[2vh] pb-[1vh]"
 				>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, ut.
-					Lorem ipsum dolor sit amet.
+					Browse dashboards, quest logs, and stats in use. Get inspired, start
+					building yours.
 				</motion.p>
 			</div>
 			<div className="w-full max-w-[100vw] h-[80vh] mx-auto overflow-hidden relative ">
 				{/* Slides */}
+				{/* Slides */}
 				<div
-					className="w-[300vw] flex  gap-[1.5vw] pl-[10vw] transition-transform duration-[1100ms] ease-in-out"
+					className="w-[500vw] flex gap-[1.5vw] pl-[10vw] transition-transform duration-[1100ms] ease-in-out"
 					style={{ transform: `translateX(-${currentSlide * 81.5}vw)` }}
 				>
-					{/* Slide 1 */}
-					<div className="w-[80vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative">
-						<img
-							src="https://placehold.co/1000x600"
-							className="w-[80vw] h-[70vh] object-cover rounded-[0.5rem]"
-							alt=""
-						/>
-						{/* 						<h2>Slide 1</h2>
-						 */}{" "}
-						<div className="absolute top-[2vh] left-[50%] translate-x-[-50%] text-[2vh] rounded-full flex items-center justify-center gap-[1vw]">
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
+					{slides.map((slide, index) => (
+						<div
+							key={index}
+							className="w-[80vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative"
+						>
+							<img
+								src={slide.image}
+								className="w-[80vw] h-[70vh] object-cover rounded-[0.5rem]"
+								alt={slide.title}
+							/>
+							{/* Tags at the top */}
+							<div className="absolute top-[2vh] left-[50%] translate-x-[-50%] text-[2vh] rounded-full flex items-center justify-center gap-[1vw]">
+								{slide.description.split(" — ").map((tag, i) => (
+									<span
+										key={i}
+										className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full"
+									>
+										{tag}
+									</span>
+								))}
+							</div>
+
+							<div className="absolute bottom-[2vh] left-[50%] translate-x-[-50%] bg-neutral-50 font-semibold text-[2vh] rounded-full px-[3vw] py-[1vh]">
+								{slide.title}
+							</div>
 						</div>
-						<div className="absolute bottom-[2vh] left-[50%] translate-x-[-50%] bg-neutral-50 font-semibold text-[2vh] rounded-full px-[3vw] py-[1vh]">
-							Lorem, ipsum.
-						</div>
-					</div>
-					{/* Slide 2 */}
-					<div className="w-[80vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative">
-						<img
-							src="https://placehold.co/1000x600"
-							className="w-[80vw] h-[70vh] object-cover rounded-[0.5rem]"
-							alt=""
-						/>
-						{/* 						<h2>Slide 1</h2>
-						 */}{" "}
-						<div className="absolute top-[2vh] left-[50%] translate-x-[-50%] text-[2vh] rounded-full flex items-center justify-center gap-[1vw]">
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-						</div>
-						<div className="absolute bottom-[2vh] left-[50%] translate-x-[-50%] bg-neutral-50 font-semibold text-[2vh] rounded-full px-[3vw] py-[1vh]">
-							Lorem, ipsum.
-						</div>
-					</div>
-					{/* Slide 3 */}
-					<div className="w-[80vw] h-[70vh] flex items-center justify-center rounded-[0.5rem] relative">
-						<img
-							src="https://placehold.co/1000x600"
-							className="w-[80vw] h-[70vh] object-cover rounded-[0.5rem]"
-							alt=""
-						/>
-						{/* 						<h2>Slide 1</h2>
-						 */}{" "}
-						<div className="absolute top-[2vh] left-[50%] translate-x-[-50%] text-[2vh] rounded-full flex items-center justify-center gap-[1vw]">
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-							<span className="px-[1.5vw] py-[0.25vh] font-semibold text-[1.5vh] bg-white rounded-full">
-								Lorem
-							</span>
-						</div>
-						<div className="absolute bottom-[2vh] left-[50%] translate-x-[-50%] bg-neutral-50 font-semibold text-[2vh] rounded-full px-[3vw] py-[1vh]">
-							Lorem, ipsum.
-						</div>
-					</div>
+					))}
 				</div>
+
 				{/* Dots */}
 				<div className="flex w-fit mx-auto gap-[0.5vw] mt-[5vh]">
 					<div
@@ -152,6 +130,16 @@ const Carousel = () => {
 					<div
 						className={`w-[7px] h-[7px] bg-black ${
 							currentSlide == 2 ? "bg-black" : "bg-neutral-300 transition"
+						} rounded-full`}
+					></div>
+					<div
+						className={`w-[7px] h-[7px] bg-black ${
+							currentSlide == 3 ? "bg-black" : "bg-neutral-300 transition"
+						} rounded-full`}
+					></div>
+					<div
+						className={`w-[7px] h-[7px] bg-black ${
+							currentSlide == 4 ? "bg-black" : "bg-neutral-300 transition"
 						} rounded-full`}
 					></div>
 				</div>

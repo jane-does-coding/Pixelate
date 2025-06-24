@@ -42,10 +42,10 @@ const Info = () => {
 						transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
 						className="mb-[3vh] px-[1vw]"
 					>
-						<h2 className="text-[4.5vh] pb-[1vh]">Lorem ipsum dolor</h2>
+						<h2 className="text-[4.5vh] pb-[1vh]">Why Pixelate?</h2>
 						<p className="text-[1.5vh] font-medium uppercase">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores
-							quas maiores pariatur, inventore reiciendis perspiciatis?
+							Make life fun, build discipline, and stay consistent. Progress
+							feels better when it{"'"}s rewarding.
 						</p>
 					</motion.div>
 					<motion.img
@@ -72,10 +72,10 @@ const Info = () => {
 						transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
 						className="mb-[3vh] px-[1vw]"
 					>
-						<h2 className="text-[4.5vh] pb-[1vh]">Lorem ipsum dolor</h2>
+						<h2 className="text-[4.5vh] pb-[1vh]">Built For You</h2>
 						<p className="text-[1.5vh] font-medium uppercase">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores
-							quas maiores pariatur, inventore reiciendis perspiciatis?
+							Customizable quests, flexible goals, and visual progress. Design
+							your own system that actually works.
 						</p>
 					</motion.div>
 					<motion.img
@@ -116,10 +116,10 @@ const Info = () => {
 						transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
 						className="px-[1rem]"
 					>
-						<h3 className="text-[5vh] mb-[1vh]">Lorem ipsum dolor sit amet.</h3>
+						<h3 className="text-[5vh] mb-[1vh]">Join the Journey</h3>
 						<h4 className="text-[2vh]">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa
-							perferendis voluptatem consectetur, nulla porro error.
+							Stay connected for tips, updates, and exclusive sneak peeks.
+							Follow us and level up your life every day.
 						</h4>
 					</motion.div>
 
@@ -130,8 +130,8 @@ const Info = () => {
 						className="pt-[1rem] border-t-2 border-neutral-300"
 					>
 						<p className="text-[2vh]">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-							cum!
+							Life RPG is a passion project to help you turn daily habits into
+							epic wins. Keep questing!
 						</p>
 					</motion.div>
 				</motion.div>

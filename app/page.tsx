@@ -15,7 +15,8 @@ export default function Home() {
 			<Featured />
 			<Carousel />
 			<Info />
-			<MarqueeComponent />
+			{/* 			<MarqueeComponent />
+			 */}{" "}
 			<Insights />
 			<Footer />
 		</div>

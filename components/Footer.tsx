@@ -45,7 +45,7 @@ const Footer = () => {
 				transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
 				className="cursor-pointer"
 			>
-				Lorem Ipsum
+				Join Us
 			</motion.a>
 		</motion.div>
 	);
