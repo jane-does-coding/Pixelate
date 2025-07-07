@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import DashboardFirstCol from "../dashboard/_components/DashboardFirstCol";
 import DashboardSecondCol from "./_components/DashboardSecondCol";
 
-const page = () => {
+const Page = () => {
 	const { ref: headingRef, inView: headingInView } = useInView({
 		triggerOnce: true,
 		threshold: 0.2,
@@ -35,4 +35,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;

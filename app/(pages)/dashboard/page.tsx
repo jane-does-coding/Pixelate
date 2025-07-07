@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Dashboard from "./_components/Dashboard";
 
-const page = () => {
+const Page = () => {
 	const { ref: headingRef, inView: headingInView } = useInView({
 		triggerOnce: true,
 		threshold: 0.2,
@@ -25,4 +25,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;
