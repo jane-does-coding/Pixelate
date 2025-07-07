@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { FaStar } from "react-icons/fa";
 
 const tabs = ["Profile", "Main Quests", "Side Quests", "Habits", "Skills"];
 

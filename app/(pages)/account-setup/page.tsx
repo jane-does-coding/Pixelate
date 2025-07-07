@@ -4,7 +4,6 @@ import FormHeader from "./_components/FormHeader";
 import PersonalInfoForm from "./_components/PersonalInfoForm";
 import SetupForm from "./_components/SetupForm";
 import { FaHeart } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa";
 import { FaBatteryHalf } from "react-icons/fa";
 
 const page = () => {

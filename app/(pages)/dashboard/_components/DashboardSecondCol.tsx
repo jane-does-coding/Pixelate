@@ -27,7 +27,7 @@ const gridItems = [
 	{
 		label: "Goal • Objective",
 		image: "/goals.png",
-		href: "/goal",
+		href: "/goals",
 	},
 	{
 		label: "Profile • Vision Board",
